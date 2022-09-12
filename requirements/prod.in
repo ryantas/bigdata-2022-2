@@ -1,0 +1,14 @@
+boltons
+editdistance
+flask
+h5py
+numpy
+pytorch-lightning
+requests
+smart_open
+toml
+torch
+torchvision
+torchmetrics
+pymongo
+redis
