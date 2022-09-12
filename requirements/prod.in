@@ -12,3 +12,5 @@ torchvision
 torchmetrics
 pymongo
 redis
+dask
+graphviz
