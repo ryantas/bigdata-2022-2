@@ -14,3 +14,4 @@ pymongo
 redis
 dask
 graphviz
+pandas
