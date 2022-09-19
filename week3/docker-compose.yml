@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+  redis:
+    image: redis
+    # ports:
+    #   - "6379:6379"
+    # environment:
+    # #   - DATABASE_URL=postgres://user:openhouse2016@db:5432/chat
+    #    - REDIS_URL=redis://redis:6379/1
+    # links:
+    #   #  - db
+    #    - redis
+    volumes:
+      - ./config/redis.conf:/redis.conf
+    command: [ "redis-server", "/redis.conf" ]
+    container_name: myredis
+  mongo:
+    image: mongo
+    container_name: mymongo
+  cassandra:
+    image: cassandra
+    container_name: mycassandra
+  neo4j:
+    image: neo4j
+    environment:
+      - NEO4J_AUTH=none
+    ports:      
+      - "7687:7687"
+      - "7473:7473"
+      - "7474:7474"
+    container_name: myneo4j 
