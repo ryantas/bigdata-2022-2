@@ -2,11 +2,13 @@
 **/__pycache__/**
 /datasets
 
+/activities
 
 /data
 /week1/training/logs/
 /week1/model.pt
 .vscode
+
 
 /week5
 /week6
@@ -14,3 +16,5 @@
 /week8
 /week9
 /week10
+
+setup-tljh.sh

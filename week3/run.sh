@@ -8,12 +8,15 @@ cypher-shell
 # docker exec -ti neo4j cypher-shell -u neo4j -p pass
 
 docker-compose run -d --rm --name mycassandra -p 9042:9042 cassandra
-docker exec -it my-cassandra /bin/sh
+docker exec -it mycassandra /bin/sh
 cqlsh -u cassandra -p cassandra
 show version
 
 docker stop mycassandra
 docker rm mycassandra
+
+createdb mypsql
+psql mypsql < config.sql 
 
 # https://cassandra.apache.org/_/quickstart.html
 

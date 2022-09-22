@@ -3,9 +3,9 @@ CREATE KEYSPACE IF NOT EXISTS store WITH REPLICATION = { 'class' : 'SimpleStrate
 
 -- Create a table
 CREATE TABLE IF NOT EXISTS store.shopping_cart (
-userid text PRIMARY KEY,
-item_count int,
-last_update_timestamp timestamp
+    userid text PRIMARY KEY,
+    item_count int,
+    last_update_timestamp timestamp
 );
 
 -- Insert some data

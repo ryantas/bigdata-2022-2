@@ -48,7 +48,7 @@ def sync_db():
 def main():
     sync_db()
     set_cql_logger()
-    from IPython import embed; embed()
+    #from IPython import embed; embed()
 
 
 if __name__ == '__main__':

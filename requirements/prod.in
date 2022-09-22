@@ -13,8 +13,14 @@ torchmetrics
 pymongo
 redis
 dask
+dask-ml
+scikit-learn
 graphviz
 pandas
 neo4j
 psycopg2
 cassandra-driver
+
+datashader
+holoviews
+geoviews
