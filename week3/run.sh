@@ -39,3 +39,42 @@ sudo chmod -R 775 /usr/local/lib/node_modules/
 
 
 # https://github.com/jupyterhub/configurable-http-proxy
+
+
+
+
+
+
+key_space = {
+
+    "citizen":
+    {
+        "name": ["ca", "as ", ""],
+        "last_name": []
+        "country": []
+        ""
+    }
+
+    "sds" 
+    {
+
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

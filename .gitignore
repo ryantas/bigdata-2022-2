@@ -10,7 +10,7 @@
 .vscode
 
 
-/week5
+/week5/Chapter *
 /week6
 /week7
 /week8
@@ -18,3 +18,5 @@
 /week10
 
 setup-tljh.sh
+
+/proj

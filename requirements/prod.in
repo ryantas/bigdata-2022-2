@@ -1,3 +1,5 @@
+# ipykernel
+# jupyterlab
 boltons
 editdistance
 flask
@@ -20,7 +22,14 @@ pandas
 neo4j
 psycopg2
 cassandra-driver
-
 datashader
 holoviews
-geoviews
+# scitools
+# cartopy
+# pyviz
+
+#cartopy==0.19.0.post1
+#geoviews
+# click==8.0.2
+
+pyarrow

@@ -4,7 +4,7 @@ channels:
 dependencies:
   - python=3.9
   - cudatoolkit=10.1
-  - cudnn=7.6
-  - pip
+  - cudnn=7.6  
+  - pip  
   - pip:
       - pip-tools
