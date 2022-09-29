@@ -1,5 +1,3 @@
-# ipykernel
-# jupyterlab
 boltons
 editdistance
 flask
@@ -15,21 +13,21 @@ torchmetrics
 pymongo
 redis
 dask
-dask-ml
 scikit-learn
-graphviz
 pandas
-neo4j
-psycopg2
-cassandra-driver
-datashader
-holoviews
+jupyterlab
+
+# dask-ml
+# graphviz
+# neo4j
+# psycopg2
+# cassandra-driver
+# datashader
+# holoviews
 # scitools
 # cartopy
 # pyviz
-
-#cartopy==0.19.0.post1
-#geoviews
+# cartopy==0.19.0.post1
+# geoviews
 # click==8.0.2
-
-pyarrow
+# pyarrow
