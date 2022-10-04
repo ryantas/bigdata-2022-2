@@ -16,7 +16,13 @@ dask
 scikit-learn
 pandas
 jupyterlab
-
+pyarrow
+ray
+# ray[air]
+ray[train]
+ray[tune]
+ray[rllib]
+# ray[serve]
 # dask-ml
 # graphviz
 # neo4j

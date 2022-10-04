@@ -15,6 +15,8 @@ show version
 docker stop mycassandra
 docker rm mycassandra
 
+docker system df # check memory
+
 createdb mypsql
 psql mypsql < config.sql 
 
