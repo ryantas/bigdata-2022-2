@@ -5,17 +5,15 @@
 /activities
 
 /data
-/week1/training/logs/
-/week1/model.pt
+/Lab01-deeplearning/training/logs/
+/Lab01-deeplearning/model.pt
 .vscode
 
-
-/week5/Chapter *
-/week6
-/week7
-/week8
-/week9
-/week10
+/Lab04-dask/nyc-average-monthly-temp.csv
+/Lab04-dask/nyc-temp-data.csv
+/Lab05-dask2/Chapter *
+Lab06-ray/4-RL/rex/results/
+# /Lab06-ray/
 
 setup-tljh.sh
 
