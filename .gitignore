@@ -12,8 +12,8 @@
 /Lab04-dask/nyc-average-monthly-temp.csv
 /Lab04-dask/nyc-temp-data.csv
 /Lab05-dask2/Chapter *
-Lab06-ray/4-RL/rex/results/
-# /Lab06-ray/
+/Lab06-ray/reinforcement_learning/rex/results/
+/Lab06-ray/local_dir/
 
 setup-tljh.sh
 
