@@ -3,7 +3,7 @@ editdistance
 flask
 h5py
 numpy
-pytorch-lightning
+# pytorch-lightning
 requests
 smart_open
 toml
@@ -18,11 +18,14 @@ pandas
 jupyterlab
 pyarrow
 ray
-# ray[air]
+ray[air]
 ray[train]
 ray[tune]
 ray[rllib]
-# ray[serve]
+transformers
+# to use ray serve comment pytorch-lightning
+ray[serve]
+# to use dask-ml comment jupyterlab
 # dask-ml
 # graphviz
 # neo4j

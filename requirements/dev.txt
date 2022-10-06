@@ -127,7 +127,7 @@ pluggy==1.0.0
     # via pytest
 promise==2.3
     # via wandb
-protobuf==3.19.5
+protobuf==3.20.1
     # via
     #   -c requirements/prod.txt
     #   wandb
@@ -161,7 +161,9 @@ pyyaml==6.0
     #   bandit
     #   wandb
 regex==2022.9.13
-    # via nltk
+    # via
+    #   -c requirements/prod.txt
+    #   nltk
 requests==2.28.1
     # via
     #   -c requirements/prod.txt

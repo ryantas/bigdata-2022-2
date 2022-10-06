@@ -4,16 +4,22 @@
 #
 #    pip-compile requirements/prod.in
 #
-absl-py==1.2.0
-    # via tensorboard
 aiohttp==3.8.3
-    # via fsspec
+    # via
+    #   aiohttp-cors
+    #   ray
+aiohttp-cors==0.7.0
+    # via ray
+aiorwlock==1.3.0
+    # via ray
 aiosignal==1.2.0
     # via
     #   aiohttp
     #   ray
 anyio==3.6.1
-    # via jupyter-server
+    # via
+    #   jupyter-server
+    #   starlette
 argon2-cffi==21.3.0
     # via
     #   jupyter-server
@@ -21,6 +27,8 @@ argon2-cffi==21.3.0
     #   notebook
 argon2-cffi-bindings==21.2.0
     # via argon2-cffi
+asgiref==3.5.2
+    # via uvicorn
 asttokens==2.0.8
     # via stack-data
 async-timeout==4.0.2
@@ -40,6 +48,8 @@ beautifulsoup4==4.11.1
     # via nbconvert
 bleach==5.0.1
     # via nbconvert
+blessed==1.19.1
+    # via gpustat
 boltons==21.0.0
     # via -r requirements/prod.in
 cachetools==5.2.0
@@ -56,10 +66,13 @@ click==8.0.4
     # via
     #   flask
     #   ray
+    #   uvicorn
 cloudpickle==2.2.0
     # via
     #   dask
     #   gym
+colorful==0.5.4
+    # via ray
 contourpy==1.0.5
     # via matplotlib
 cycler==0.11.0
@@ -84,11 +97,15 @@ entrypoints==0.4
     # via jupyter-client
 executing==1.1.0
     # via stack-data
+fastapi==0.85.0
+    # via ray
 fastjsonschema==2.16.2
     # via nbformat
 filelock==3.8.0
     # via
+    #   huggingface-hub
     #   ray
+    #   transformers
     #   virtualenv
 flask==2.2.2
     # via -r requirements/prod.in
@@ -99,26 +116,30 @@ frozenlist==1.3.1
     #   aiohttp
     #   aiosignal
     #   ray
-fsspec[http]==2022.8.2
+fsspec==2022.8.2
     # via
     #   dask
-    #   pytorch-lightning
-google-auth==2.12.0
-    # via
-    #   google-auth-oauthlib
-    #   tensorboard
-google-auth-oauthlib==0.4.6
-    # via tensorboard
-grpcio==1.43.0
-    # via
     #   ray
-    #   tensorboard
+google-api-core==2.10.1
+    # via opencensus
+google-auth==2.12.0
+    # via google-api-core
+googleapis-common-protos==1.56.4
+    # via google-api-core
+gpustat==1.0.0
+    # via ray
+grpcio==1.43.0
+    # via ray
 gym==0.23.1
     # via ray
 gym-notices==0.0.8
     # via gym
+h11==0.14.0
+    # via uvicorn
 h5py==3.7.0
     # via -r requirements/prod.in
+huggingface-hub==0.10.0
+    # via transformers
 idna==3.4
     # via
     #   anyio
@@ -131,7 +152,6 @@ importlib-metadata==4.12.0
     #   flask
     #   gym
     #   jupyterlab-server
-    #   markdown
     #   nbconvert
 ipykernel==6.16.0
     # via
@@ -203,8 +223,6 @@ lxml==4.9.1
     # via nbconvert
 lz4==4.0.2
     # via ray
-markdown==3.4.1
-    # via tensorboard
 markupsafe==2.1.1
     # via
     #   jinja2
@@ -263,32 +281,36 @@ numpy==1.23.3
     #   matplotlib
     #   pandas
     #   pyarrow
-    #   pytorch-lightning
     #   pywavelets
     #   ray
     #   scikit-image
     #   scikit-learn
     #   scipy
-    #   tensorboard
     #   tensorboardx
     #   tifffile
     #   torchmetrics
     #   torchvision
-oauthlib==3.2.1
-    # via requests-oauthlib
+    #   transformers
+nvidia-ml-py==11.495.46
+    # via gpustat
+opencensus==0.11.0
+    # via ray
+opencensus-context==0.1.3
+    # via opencensus
 packaging==21.3
     # via
     #   dask
+    #   huggingface-hub
     #   ipykernel
     #   jupyter-server
     #   jupyterlab
     #   jupyterlab-server
     #   matplotlib
     #   nbconvert
-    #   pytorch-lightning
     #   redis
     #   scikit-image
     #   torchmetrics
+    #   transformers
 pandas==1.5.0
     # via
     #   -r requirements/prod.in
@@ -311,28 +333,36 @@ pillow==9.2.0
     #   torchvision
 platformdirs==2.5.2
     # via virtualenv
-prometheus-client==0.14.1
+prometheus-client==0.13.1
     # via
     #   jupyter-server
     #   nbclassic
     #   notebook
+    #   ray
 prompt-toolkit==3.0.31
     # via ipython
-protobuf==3.19.5
+protobuf==3.20.1
     # via
+    #   google-api-core
+    #   googleapis-common-protos
     #   ray
-    #   tensorboard
     #   tensorboardx
 psutil==5.9.2
-    # via ipykernel
+    # via
+    #   gpustat
+    #   ipykernel
 ptyprocess==0.7.0
     # via
     #   pexpect
     #   terminado
 pure-eval==0.2.2
     # via stack-data
-pyarrow==9.0.0
-    # via -r requirements/prod.in
+py-spy==0.3.14
+    # via ray
+pyarrow==6.0.1
+    # via
+    #   -r requirements/prod.in
+    #   ray
 pyasn1==0.4.8
     # via
     #   pyasn1-modules
@@ -341,8 +371,10 @@ pyasn1-modules==0.2.8
     # via google-auth
 pycparser==2.21
     # via cffi
-pydeprecate==0.3.2
-    # via pytorch-lightning
+pydantic==1.10.2
+    # via
+    #   fastapi
+    #   ray
 pygments==2.13.0
     # via
     #   ipython
@@ -360,8 +392,6 @@ python-dateutil==2.8.2
     #   jupyter-client
     #   matplotlib
     #   pandas
-pytorch-lightning==1.7.7
-    # via -r requirements/prod.in
 pytz==2022.2.1
     # via
     #   babel
@@ -371,8 +401,9 @@ pywavelets==1.4.1
 pyyaml==6.0
     # via
     #   dask
-    #   pytorch-lightning
+    #   huggingface-hub
     #   ray
+    #   transformers
 pyzmq==24.0.1
     # via
     #   ipykernel
@@ -380,21 +411,21 @@ pyzmq==24.0.1
     #   jupyter-server
     #   nbclassic
     #   notebook
-ray[rllib,train,tune]==2.0.0
+ray[air,rllib,serve,train,tune]==2.0.0
     # via -r requirements/prod.in
 redis==4.3.4
     # via -r requirements/prod.in
+regex==2022.9.13
+    # via transformers
 requests==2.28.1
     # via
     #   -r requirements/prod.in
-    #   fsspec
+    #   google-api-core
+    #   huggingface-hub
     #   jupyterlab-server
     #   ray
-    #   requests-oauthlib
-    #   tensorboard
     #   torchvision
-requests-oauthlib==1.3.1
-    # via google-auth-oauthlib
+    #   transformers
 rsa==4.9
     # via google-auth
 scikit-image==0.19.3
@@ -415,25 +446,27 @@ six==1.16.0
     # via
     #   asttokens
     #   bleach
+    #   blessed
     #   google-auth
+    #   gpustat
     #   grpcio
     #   python-dateutil
 smart-open==6.2.0
-    # via -r requirements/prod.in
+    # via
+    #   -r requirements/prod.in
+    #   ray
 sniffio==1.3.0
     # via anyio
 soupsieve==2.3.2.post1
     # via beautifulsoup4
 stack-data==0.5.1
     # via ipython
+starlette==0.20.4
+    # via
+    #   fastapi
+    #   ray
 tabulate==0.8.10
     # via ray
-tensorboard==2.10.1
-    # via pytorch-lightning
-tensorboard-data-server==0.6.1
-    # via tensorboard
-tensorboard-plugin-wit==1.8.1
-    # via tensorboard
 tensorboardx==2.5.1
     # via ray
 terminado==0.15.0
@@ -447,6 +480,8 @@ tifffile==2022.8.12
     # via scikit-image
 tinycss2==1.1.1
     # via nbconvert
+tokenizers==0.12.1
+    # via transformers
 toml==0.10.2
     # via -r requirements/prod.in
 tomli==2.0.1
@@ -458,13 +493,10 @@ toolz==0.12.0
 torch==1.12.1
     # via
     #   -r requirements/prod.in
-    #   pytorch-lightning
     #   torchmetrics
     #   torchvision
 torchmetrics==0.9.3
-    # via
-    #   -r requirements/prod.in
-    #   pytorch-lightning
+    # via -r requirements/prod.in
 torchvision==0.13.1
     # via -r requirements/prod.in
 tornado==6.2
@@ -477,7 +509,9 @@ tornado==6.2
     #   notebook
     #   terminado
 tqdm==4.64.1
-    # via pytorch-lightning
+    # via
+    #   huggingface-hub
+    #   transformers
 traitlets==5.4.0
     # via
     #   ipykernel
@@ -491,17 +525,25 @@ traitlets==5.4.0
     #   nbconvert
     #   nbformat
     #   notebook
+transformers==4.22.2
+    # via -r requirements/prod.in
 typing-extensions==4.3.0
     # via
-    #   pytorch-lightning
+    #   huggingface-hub
+    #   pydantic
+    #   starlette
     #   torch
     #   torchvision
 urllib3==1.26.12
     # via requests
+uvicorn==0.16.0
+    # via ray
 virtualenv==20.16.5
     # via ray
 wcwidth==0.2.5
-    # via prompt-toolkit
+    # via
+    #   blessed
+    #   prompt-toolkit
 webencodings==0.5.1
     # via
     #   bleach
@@ -509,17 +551,10 @@ webencodings==0.5.1
 websocket-client==1.4.1
     # via jupyter-server
 werkzeug==2.2.2
-    # via
-    #   flask
-    #   tensorboard
-wheel==0.37.1
-    # via tensorboard
+    # via flask
 wrapt==1.14.1
     # via deprecated
 yarl==1.8.1
     # via aiohttp
 zipp==3.8.1
     # via importlib-metadata
-
-# The following packages are considered to be unsafe in a requirements file:
-# setuptools
