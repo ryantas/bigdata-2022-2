@@ -1,7 +1,6 @@
 from collections import Counter
 import socket
 import time
-
 import ray
 
 ray.init(address='ray://localhost:10001')
@@ -18,7 +17,14 @@ def f():
     return socket.gethostbyname(socket.gethostname())
 
 object_ids = [f.remote() for _ in range(10000)]
+
+for id, num_tasks in Counter(object_ids).items():
+    print(id, num_tasks)
+    
 ip_addresses = ray.get(object_ids)
+
+# for i in ip_addresses:
+#     print(i)
 
 print('Tasks executed')
 for ip_address, num_tasks in Counter(ip_addresses).items():

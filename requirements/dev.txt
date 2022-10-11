@@ -78,7 +78,7 @@ kiwisolver==1.4.4
     #   matplotlib
 lazy-object-proxy==1.7.1
     # via astroid
-matplotlib==3.6.0
+matplotlib==3.6.1
     # via
     #   -c requirements/prod.txt
     #   -r requirements/dev.in
@@ -127,7 +127,7 @@ pluggy==1.0.0
     # via pytest
 promise==2.3
     # via wandb
-protobuf==3.20.1
+protobuf==3.19.6
     # via
     #   -c requirements/prod.txt
     #   wandb

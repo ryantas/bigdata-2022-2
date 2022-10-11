@@ -5,7 +5,6 @@ A simple example to create a Ray cluster using a custom docker image and a docke
 For more information on Ray:
 
 * https://hub.docker.com/r/rayproject/ray
-
 * https://www.ray.io/
 * https://github.com/ray-project/ray
 
@@ -23,8 +22,17 @@ docker build -t raytest .
 
 A docker compose file was created to configure the cluster for us. You can start it as follows:
 
+Stop redis service if it is running.
+
 ```
-docker-compose up
+systemctl status redis
+systemctl stop redis 
+
+```
+
+
+```
+docker-compose up -d
 ```
 
 Or optionally run in detatched mode by adding -d.

@@ -16,6 +16,9 @@ dask
 scikit-learn
 pandas
 jupyterlab
+# to use dask-ml comment jupyterlab or viceverse
+# dask-ml
+zarr
 pyarrow
 ray
 ray[air]
@@ -23,10 +26,8 @@ ray[train]
 ray[tune]
 ray[rllib]
 transformers
-# to use ray serve comment pytorch-lightning
+# # to use ray serve comment pytorch-lightning or viceverse
 ray[serve]
-# to use dask-ml comment jupyterlab
-# dask-ml
 # graphviz
 # neo4j
 # psycopg2

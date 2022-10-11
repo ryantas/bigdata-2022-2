@@ -27,6 +27,8 @@ argon2-cffi==21.3.0
     #   notebook
 argon2-cffi-bindings==21.2.0
     # via argon2-cffi
+asciitree==0.3.3
+    # via zarr
 asgiref==3.5.2
     # via uvicorn
 asttokens==2.0.8
@@ -77,7 +79,7 @@ contourpy==1.0.5
     # via matplotlib
 cycler==0.11.0
     # via matplotlib
-dask==2022.9.1
+dask==2022.9.2
     # via -r requirements/prod.in
 debugpy==1.6.3
     # via ipykernel
@@ -94,11 +96,15 @@ dm-tree==0.1.7
 editdistance==0.6.0
     # via -r requirements/prod.in
 entrypoints==0.4
-    # via jupyter-client
-executing==1.1.0
+    # via
+    #   jupyter-client
+    #   numcodecs
+executing==1.1.1
     # via stack-data
 fastapi==0.85.0
     # via ray
+fasteners==0.18
+    # via zarr
 fastjsonschema==2.16.2
     # via nbformat
 filelock==3.8.0
@@ -120,7 +126,7 @@ fsspec==2022.8.2
     # via
     #   dask
     #   ray
-google-api-core==2.10.1
+google-api-core==2.10.2
     # via opencensus
 google-auth==2.12.0
     # via google-api-core
@@ -209,7 +215,7 @@ jupyter-server==1.19.1
     #   jupyterlab-server
     #   nbclassic
     #   notebook-shim
-jupyterlab==3.4.7
+jupyterlab==3.4.8
     # via -r requirements/prod.in
 jupyterlab-pygments==0.2.2
     # via nbconvert
@@ -219,8 +225,6 @@ kiwisolver==1.4.4
     # via matplotlib
 locket==1.0.0
     # via partd
-lxml==4.9.1
-    # via nbconvert
 lz4==4.0.2
     # via ray
 markupsafe==2.1.1
@@ -228,7 +232,7 @@ markupsafe==2.1.1
     #   jinja2
     #   nbconvert
     #   werkzeug
-matplotlib==3.6.0
+matplotlib==3.6.1
     # via ray
 matplotlib-inline==0.1.6
     # via
@@ -242,23 +246,23 @@ multidict==6.0.2
     # via
     #   aiohttp
     #   yarl
-nbclassic==0.4.3
+nbclassic==0.4.5
     # via jupyterlab
-nbclient==0.6.8
+nbclient==0.7.0
     # via nbconvert
-nbconvert==7.0.0
+nbconvert==7.2.1
     # via
     #   jupyter-server
     #   nbclassic
     #   notebook
-nbformat==5.6.1
+nbformat==5.7.0
     # via
     #   jupyter-server
     #   nbclassic
     #   nbclient
     #   nbconvert
     #   notebook
-nest-asyncio==1.5.5
+nest-asyncio==1.5.6
     # via
     #   ipykernel
     #   jupyter-client
@@ -271,6 +275,8 @@ notebook==6.4.12
     # via jupyterlab
 notebook-shim==0.1.0
     # via nbclassic
+numcodecs==0.10.2
+    # via zarr
 numpy==1.23.3
     # via
     #   -r requirements/prod.in
@@ -279,6 +285,7 @@ numpy==1.23.3
     #   h5py
     #   imageio
     #   matplotlib
+    #   numcodecs
     #   pandas
     #   pyarrow
     #   pywavelets
@@ -291,6 +298,7 @@ numpy==1.23.3
     #   torchmetrics
     #   torchvision
     #   transformers
+    #   zarr
 nvidia-ml-py==11.495.46
     # via gpustat
 opencensus==0.11.0
@@ -341,7 +349,7 @@ prometheus-client==0.13.1
     #   ray
 prompt-toolkit==3.0.31
     # via ipython
-protobuf==3.20.1
+protobuf==3.19.6
     # via
     #   google-api-core
     #   googleapis-common-protos
@@ -465,11 +473,11 @@ starlette==0.20.4
     # via
     #   fastapi
     #   ray
-tabulate==0.8.10
+tabulate==0.9.0
     # via ray
 tensorboardx==2.5.1
     # via ray
-terminado==0.15.0
+terminado==0.16.0
     # via
     #   jupyter-server
     #   nbclassic
@@ -480,7 +488,7 @@ tifffile==2022.8.12
     # via scikit-image
 tinycss2==1.1.1
     # via nbconvert
-tokenizers==0.12.1
+tokenizers==0.13.1
     # via transformers
 toml==0.10.2
     # via -r requirements/prod.in
@@ -525,11 +533,12 @@ traitlets==5.4.0
     #   nbconvert
     #   nbformat
     #   notebook
-transformers==4.22.2
+transformers==4.23.0
     # via -r requirements/prod.in
 typing-extensions==4.3.0
     # via
     #   huggingface-hub
+    #   numcodecs
     #   pydantic
     #   starlette
     #   torch
@@ -556,5 +565,7 @@ wrapt==1.14.1
     # via deprecated
 yarl==1.8.1
     # via aiohttp
+zarr==2.13.3
+    # via -r requirements/prod.in
 zipp==3.8.1
     # via importlib-metadata
