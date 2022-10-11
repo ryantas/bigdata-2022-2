@@ -3,7 +3,7 @@ editdistance
 flask
 h5py
 numpy
-# pytorch-lightning
+# pytorch-lightning  # to use comment ray[serve]
 requests
 smart_open
 toml
@@ -15,9 +15,8 @@ redis
 dask
 scikit-learn
 pandas
-jupyterlab
-# to use dask-ml comment jupyterlab or viceverse
-# dask-ml
+jupyterlab # to use comment dask-ml
+# dask-ml # to use comment jupyterlab
 zarr
 pyarrow
 ray
@@ -26,8 +25,7 @@ ray[train]
 ray[tune]
 ray[rllib]
 transformers
-# # to use ray serve comment pytorch-lightning or viceverse
-ray[serve]
+ray[serve] # to use comment pytorch-lightning
 # graphviz
 # neo4j
 # psycopg2
