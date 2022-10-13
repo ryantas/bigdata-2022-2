@@ -26,6 +26,11 @@ ray[tune]
 ray[rllib]
 transformers
 ray[serve] # to use comment pytorch-lightning
+
+# panel
+# confluent_kafka
+
+
 # graphviz
 # neo4j
 # psycopg2
@@ -39,3 +44,4 @@ ray[serve] # to use comment pytorch-lightning
 # geoviews
 # click==8.0.2
 # pyarrow
+

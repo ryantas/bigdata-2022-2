@@ -17,7 +17,7 @@ from pathlib import Path
 EPOCH_SIZE = 512
 TEST_SIZE = 256
 
-data_dir = Path(__file__).resolve().parents[2] / "datasets"
+data_dir = Path(__file__).resolve().parents[1] / "datasets"
 
 class ConvNet(nn.Module):
     def __init__(self):
