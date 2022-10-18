@@ -75,6 +75,8 @@ cloudpickle==2.2.0
     #   gym
 colorful==0.5.4
     # via ray
+confluent-kafka==1.9.2
+    # via -r requirements/prod.in
 contourpy==1.0.5
     # via matplotlib
 cycler==0.11.0
