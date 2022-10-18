@@ -27,8 +27,9 @@ ray[rllib]
 transformers
 ray[serve] # to use comment pytorch-lightning
 
+matplotlib
 # panel
-# confluent_kafka
+confluent_kafka
 
 
 # graphviz

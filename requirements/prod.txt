@@ -233,7 +233,9 @@ markupsafe==2.1.1
     #   nbconvert
     #   werkzeug
 matplotlib==3.6.1
-    # via ray
+    # via
+    #   -r requirements/prod.in
+    #   ray
 matplotlib-inline==0.1.6
     # via
     #   ipykernel
