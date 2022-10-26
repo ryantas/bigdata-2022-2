@@ -1,5 +1,10 @@
-from confluent_kafka import Producer, TopicPartition
+from confluent_kafka import Producer
+import pandas as pd
 import socket
+import json
+
+# read dataset "Solargis_min15_Almeria_spain.csv"
+# sample_size = 100
 
 class App():
     def __init__(self) -> None:
@@ -17,4 +22,18 @@ class App():
 
 
 app = App()
-app.produce('data-from-produce python api')
+
+
+
+df = pd.read_csv('../datasets/csv/Solargis_min15_Almeria_Spain.csv')
+
+for row in df.values:
+    value = {"Date": row[0], "GTI": row[1], "Temperature": row[2]}
+    print(value)
+    app.produce(json.dumps(value))
+    # print(type(json.dumps(value)))
+
+
+
+
+# app.produce('data-from-produce python api')

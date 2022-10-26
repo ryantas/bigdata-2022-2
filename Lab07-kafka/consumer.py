@@ -1,5 +1,12 @@
 
 from confluent_kafka import Consumer, TopicPartition
+import redis
+
+REDIS_HOST = '0.0.0.0'
+REDIS_PORT = '6379'
+redis = redis.Redis(host=self.redis_host,
+                                 port=self.redis_port, decode_responses=True)
+
 
 '''
     Topic: Weather
@@ -18,7 +25,7 @@ class DataCapture():
     def __init__(self) -> None:
         self.conf = {
             'bootstrap.servers': 'localhost:9092, localhost:9093, localhost:9094',
-            'group.id': 'test',            
+            'group.id': 'test2',            
             'enable.auto.commit': 'false',
             'auto.offset.reset': 'earliest',
             'max.poll.interval.ms': '500000',
@@ -33,18 +40,21 @@ class DataCapture():
 
         try:
             while True:
-                msg = self.consumer.poll(1.0)
-                if msg is None:
+                # msg = self.consumer.poll(1.0) # consume(100, 1.0)
+                msgs = self.consumer.consume(100, 1.0)                
+                if msgs is None:
                     continue
-                user = msg.value()
-                partition = msg.partition()
-                offset = msg.offset()
+                for msg in msgs:
+                    user = msg.value()
+                    partition = msg.partition()
+                    offset = msg.offset()
+                    if user is not  None:
+                        # process it
+                        print(user)
+                    self.consumer.commit(offsets=[TopicPartition(topic = self.topic, partition=partition, offset=offset+1)], asynchronous = False)
 
-                if user is not  None:
-                    # process it
-                    print(user)
-                self.consumer.commit(offsets=[TopicPartition(topic = self.topic, partition=partition, offset=offset+1)], asynchronous = False)
-                
+                print("==============================")
+
         except KeyboardInterrupt:
             print("interrupted error ")
         
