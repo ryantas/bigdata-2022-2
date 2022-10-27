@@ -2,10 +2,9 @@
 from confluent_kafka import Consumer, TopicPartition
 import redis
 
-REDIS_HOST = '0.0.0.0'
-REDIS_PORT = '6379'
-redis = redis.Redis(host=self.redis_host,
-                                 port=self.redis_port, decode_responses=True)
+# REDIS_HOST = '0.0.0.0'
+# REDIS_PORT = '6379'
+# redis = redis.Redis(host=self.redis_host,port=self.redis_port, decode_responses=True)
 
 
 '''
@@ -25,7 +24,7 @@ class DataCapture():
     def __init__(self) -> None:
         self.conf = {
             'bootstrap.servers': 'localhost:9092, localhost:9093, localhost:9094',
-            'group.id': 'test2',            
+            'group.id': 'test',     
             'enable.auto.commit': 'false',
             'auto.offset.reset': 'earliest',
             'max.poll.interval.ms': '500000',
@@ -33,7 +32,7 @@ class DataCapture():
             'request.timeout.ms': '120000'
         }
 
-    def consume(self, topic='test-bigdata'):
+    def consume(self, topic='test'):
         self.consumer = Consumer(self.conf)
         self.topic = topic
         self.consumer.subscribe([self.topic])
@@ -62,4 +61,4 @@ class DataCapture():
 
 
 capture = DataCapture()
-capture.consume('test-bigdata')
+capture.consume('test')

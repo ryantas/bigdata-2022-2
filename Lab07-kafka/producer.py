@@ -8,7 +8,7 @@ import json
 
 class App():
     def __init__(self) -> None:
-        self.topic = "test-bigdata"
+        self.topic = "test"
         self.conf_producer = {
             'bootstrap.servers': 'localhost:9092, localhost:9093, localhost:9094',        
             'client.id': socket.gethostname(),

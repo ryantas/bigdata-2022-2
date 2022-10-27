@@ -12,25 +12,26 @@ torchvision
 torchmetrics
 pymongo
 redis
-dask
+# dask
 scikit-learn
 pandas
 jupyterlab # to use comment dask-ml
 # dask-ml # to use comment jupyterlab
 zarr
 pyarrow
-ray
-ray[air]
-ray[train]
-ray[tune]
-ray[rllib]
-transformers
-ray[serve] # to use comment pytorch-lightning
+# ray
+# ray[air]
+# ray[train]
+# ray[tune]
+# ray[rllib]
+# transformers
+# ray[serve] # to use comment pytorch-lightning
 
 matplotlib
 # panel
 confluent_kafka
-
+panel
+# statsmodels
 
 # graphviz
 # neo4j
