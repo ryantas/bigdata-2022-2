@@ -22,9 +22,6 @@ class App():
 
 
 app = App()
-
-
-
 df = pd.read_csv('../datasets/csv/Solargis_min15_Almeria_Spain.csv')
 
 for row in df.values:

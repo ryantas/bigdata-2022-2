@@ -32,7 +32,7 @@ matplotlib
 confluent_kafka
 panel
 # statsmodels
-
+pluck
 # graphviz
 # neo4j
 # psycopg2
