@@ -28,7 +28,7 @@ class DataCapture():
     def __init__(self) -> None:
         self.conf = {
             'bootstrap.servers': 'localhost:9092, localhost:9093, localhost:9094',
-            'group.id': 'test6',     
+            'group.id': 'test7',     
             'enable.auto.commit': 'false',
             'auto.offset.reset': 'earliest',
             'max.poll.interval.ms': '500000',
@@ -52,7 +52,7 @@ class DataCapture():
                 for msg in msgs:
                     event = msg.value()
                     partition = msg.partition()
-                    offset = msg.offset()                                        
+                    offset = msg.offset()                                      
 
                     if event is not  None:
                         # process it
