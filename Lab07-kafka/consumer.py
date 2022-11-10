@@ -84,4 +84,4 @@ class DataCapture():
 
 
 capture = DataCapture()
-capture.consume('test')
+capture.consume('test') 
