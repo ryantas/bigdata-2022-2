@@ -46,4 +46,5 @@ pluck
 # geoviews
 # click==8.0.2
 # pyarrow
-
+snakebite
+mrjob
