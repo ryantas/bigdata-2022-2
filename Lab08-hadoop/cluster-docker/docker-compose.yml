@@ -1,0 +1,70 @@
+version: '3'
+
+services:
+  namenode:
+    image: accaminero/cloudera-hadoop-namenodep3
+    container_name: namenode
+    hostname: namenode
+    command: bash -c "wget https://raw.githubusercontent.com/accaminero/cluster-hadoop-docker/master/startup.sh; 
+                      wget https://raw.githubusercontent.com/accaminero/cluster-hadoop-docker/master/supervisord.conf; 
+                      chmod u+x startup.sh; 
+                      ./startup.sh;
+                      /usr/bin/supervisord -c ./supervisord.conf;" 
+    networks:
+      - hadoop          
+    ports:
+      - 8020:8020
+    volumes:
+      - /media/notebooks:/media/notebooks 
+    tty: true
+    stdin_open: true
+  
+  yarnmaster:
+    image: loicmathieu/cloudera-cdh-yarnmaster
+    container_name: yarnmaster
+    hostname: yarnmaster
+    networks:
+      - hadoop    
+    ports:
+      - 8032:8032
+
+    
+  datanode1:
+    image: accaminero/cloudera-hadoop-datanodep3
+    container_name: datanode1
+    hostname: datanode1
+    networks:
+      - hadoop    
+    ports:
+      - 50020:50020 
+      - 50075:50075
+      - 8042:8042
+    
+
+  datanode2:
+    image: accaminero/cloudera-hadoop-datanodep3
+    container_name: datanode2
+    hostname: datanode2
+    networks:
+      - hadoop    
+ 
+
+  datanode3:
+    image: accaminero/cloudera-hadoop-datanodep3
+    container_name: datanode3
+    hostname: datanode3
+    networks:
+      - hadoop    
+ 
+
+  datanode4:
+    image: accaminero/cloudera-hadoop-datanodep3
+    container_name: datanode4
+    hostname: datanode4
+    networks:
+      - hadoop    
+ 
+networks:
+    hadoop:
+
+
