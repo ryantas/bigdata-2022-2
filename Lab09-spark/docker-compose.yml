@@ -58,6 +58,7 @@ services:
       - ./events:/tmp/spark-events
 
   spark-worker:
+    container_name: spark-worker
     depends_on:
       - spark-master
     image: elopezdelara/miniconda3-spark:latest
