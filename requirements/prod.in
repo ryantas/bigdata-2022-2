@@ -48,3 +48,4 @@ pluck
 # pyarrow
 snakebite
 mrjob
+# py4j==0.10.9.5

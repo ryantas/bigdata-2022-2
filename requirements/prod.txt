@@ -264,6 +264,8 @@ ptyprocess==0.7.0
     #   terminado
 pure-eval==0.2.2
     # via stack-data
+py4j==0.10.9.5
+    # via -r requirements/prod.in
 pyarrow==6.0.1
     # via -r requirements/prod.in
 pycparser==2.21

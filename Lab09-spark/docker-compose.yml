@@ -1,5 +1,9 @@
 version: "3"
 
+networks:
+  spark-cluster:
+    name: spark-cluster
+
 services:
 
   zookeeper:
@@ -10,6 +14,7 @@ services:
       ZOOKEEPER_TICK_TIME: 2000
     security_opt:
       - "apparmor=unconfined"
+      
   broker:
     image: confluentinc/cp-kafka:7.0.1
     container_name: broker
@@ -29,13 +34,19 @@ services:
       - "apparmor=unconfined"
 
 
-  postgres:    
+  db:    
     image: postgres:13-bullseye
-    container_name: shopping_cart_postgres
+    #volumes:
+    #  - ./data/db:/var/lib/postgresql/data
+    container_name: postgres
     environment:
       - "TZ=Europe/Amsterdam"
-      - "POSTGRES_USER=shopping_cart"
-      - "POSTGRES_PASSWORD=shopping_cart"
+      - "POSTGRES_USER=spark"
+      - "POSTGRES_PASSWORD=spark"
+    
+    networks:
+      - spark-cluster 
+
     ports:
       #- "5432:5432"  # credentials (shopping_cart:shopping_cart)
       - "5433:5432"
@@ -47,9 +58,14 @@ services:
       - "8080"
     ports:
       - "8080:8080"
+      - "7077:7077"
     command:
       - start-master.sh
     environment:
+      # added
+      - SPARK_LOCAL_IP=spark-master
+      - SPARK_WORKLOAD=master
+
       - SPARK_NO_DAEMONIZE=1
       - SPARK_PUBLIC_DNS=localhost
     networks:
@@ -68,8 +84,9 @@ services:
       - "8081:8081"
     command:
       - start-slave.sh
-      - spark://spark-master:7077
+      # - spark://spark-master:7077
     environment:
+      - SPARK_MASTER=spark://spark-master:7077
       - SPARK_NO_DAEMONIZE=1
       - SPARK_PUBLIC_DNS=localhost
     networks:
@@ -98,6 +115,7 @@ services:
 
   jupyter-notebook:
     depends_on:
+      - db # postgres
       - spark-master
     container_name: jupyter-notebook
     image: elopezdelara/miniconda3-spark:latest
@@ -110,6 +128,7 @@ services:
     networks:
       - spark-cluster
     volumes:
+      - ../datasets/raw/:/opt/datasets
       - ./notebooks:/opt/notebooks
       - ./events:/tmp/spark-events
     command:
@@ -122,9 +141,7 @@ services:
       - --allow-root
       - --NotebookApp.token=''
 
-networks:
-  spark-cluster:
-    name: spark-cluster
+
 
 #volumes:
 #  hadoop_namenode:
