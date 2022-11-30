@@ -1,3 +1,6 @@
+# unset SPARK_HOME
+# unset PYTHONPATH
+
 # https://supergloo.com/spark-sql/
 # https://jdbc.postgresql.org/download.html
 # https://spark.apache.org/docs/latest/sql-data-sources-jdbc.html

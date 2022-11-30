@@ -1,9 +1,5 @@
 version: "3"
 
-networks:
-  spark-cluster:
-    name: spark-cluster
-
 services:
 
   zookeeper:
@@ -143,7 +139,11 @@ services:
 
 
 
-#volumes:
-#  hadoop_namenode:
-#  hadoop_datanode:
-#  hadoop_historyserver:
+volumes:
+  hadoop_namenode:
+  hadoop_datanode:
+  hadoop_historyserver:
+
+networks:
+  spark-cluster:
+    name: spark-cluster
